@@ -10,7 +10,7 @@ public class Basic {
     public WebDriver driver;
     @BeforeClass
     public void beferoTest() {
-        driver = Driver.getAutoLocalDriver();
+        driver = Driver.getRemoteDriver();
         driver.manage().window().maximize();
     }
 
