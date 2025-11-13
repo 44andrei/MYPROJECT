@@ -4,10 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FormPom {
-
-    public WebDriver driver;
-    public JavascriptExecutor js;
+public class FormPom extends BasicPom{
 
     @FindBy(xpath = "//*[@id='firstName']")
     WebElement firstName;
@@ -100,23 +97,7 @@ public class FormPom {
         firstName.sendKeys(firstNameParam);
     }
 
-    public void closeAdvert() {
-        try {
-            js.executeScript("var elem = document.evaluate(\"//*[@id='adplus-anchor']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;" +
-                    "elem.parentNode.removeChild(elem);");
-        } catch (Exception ignored) {}
-        try {
-            js.executeScript("var elem = document.evaluate(\"//footer\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;" +
-                    "elem.parentNode.removeChild(elem);");
-        } catch (Exception ignored) {}
-    }
-
     public void scroLlToSubject() {
         scrollToElement(subjectsInput);
-    }
-
-    public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }
